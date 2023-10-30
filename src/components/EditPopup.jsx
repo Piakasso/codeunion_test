@@ -35,6 +35,7 @@ const EditPopup = ({
     { value: "analitics", label: "Аналитика", checked: false },
     { value: "promo", label: "Акции", checked: false },
   ]);
+
   useEffect(() => {
     setPermissions(
       permissions.map((permission) => {
@@ -45,6 +46,7 @@ const EditPopup = ({
       })
     );
   }, []);
+
   useEffect(() => {
     updatePermissions(email, permissions);
   }, [permissions, email]);
@@ -74,7 +76,11 @@ const EditPopup = ({
   };
 
   return (
-    <PopupEl onMouseLeave={onItemClick}>
+    <PopupEl
+      onMouseLeave={() => {
+        onItemClick(null);
+      }}
+    >
       {isAccessOpen ? (
         permissions.map((permission) => (
           <label htmlFor={permission.value} key={permission.value}>

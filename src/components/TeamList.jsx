@@ -3,6 +3,7 @@ import SingleUser from "./SingleUser";
 
 const TeamList = ({ users, deleteUser, updatePermissions }) => {
   const [openItem, setOpenItem] = useState(null);
+
   const handleItemClick = (index) => {
     if (openItem === index) {
       setOpenItem(null);

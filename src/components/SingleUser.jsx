@@ -49,8 +49,8 @@ const UserName = styled.span`
 const MoreEl = styled.div`
   position: absolute;
   right: 29px;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   & img {
     position: absolute;
@@ -100,8 +100,8 @@ const SingleUser = (props) => {
         />
       )}
 
-      <MoreEl>
-        <img src={dots} alt="" onClick={onItemClick} />
+      <MoreEl onClick={onItemClick}>
+        <img src={dots} alt="" />
       </MoreEl>
     </SingleUserEl>
   );
