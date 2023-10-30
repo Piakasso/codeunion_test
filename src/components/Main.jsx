@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ControlPanel from "./ControlPanel";
 import TeamList from "./TeamList";
 import NewUserModal from "./NewUserModal";
+import data from "../data.json";
 import { useFetch } from "../hooks/useFetch";
 
 const MainEl = styled.main`
@@ -31,19 +32,18 @@ const Main = () => {
   const [isOpenNewUserModal, setIsOpenNewUserModal] = useState(false);
   const [users, setUsers] = useState([]);
   const [filter, setFilter] = useState("");
-  const { request } = useFetch();
 
   useEffect(() => {
-    request(
-      "https://file.notion.so/f/s/b697dfd0-4a6f-4555-bd14-60559f2a8179/users.json?id=cc13eeae-fbeb-4b40-9b71-228fe193a8f6&table=block&spaceId=a73b0a18-75ee-4904-8f1e-0681ca27036a&expirationTimestamp=1698638400000&signature=Hx4PmYSbcftsOWobFTr9tdjQsK9aGk240-z_sxpoWD4&downloadName=users.json"
-    )
-      .then((data) => {
-        setUsers(data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, [request]);
+    setUsers(data);
+    // const { request } = useFetch();
+    // request("url")
+    //   .then((data) => {
+    //     setUsers(data);
+    //   })
+    //   .catch((e) => {
+    //     console.log(e);
+    //   });
+  }, [data]);
 
   const handleFilterChange = (value) => {
     setFilter(value);

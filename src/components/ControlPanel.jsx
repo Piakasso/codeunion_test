@@ -73,7 +73,11 @@ const ControlPanel = ({ handleAddNewUser, onFilterChange }) => {
       </div>
 
       <div style={{ flex: 1 }}>
-        <Form>
+        <Form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <input
             placeholder="Поиск"
             value={searchString}
